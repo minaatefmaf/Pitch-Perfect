@@ -22,28 +22,42 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="recording" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WTK-5c-HKH">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="14"/>
+                                <color key="textColor" red="0.14509803921568626" green="0.28235294117647058" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="WTK-5c-HKH" firstAttribute="top" secondItem="RR4-ff-sRm" secondAttribute="bottom" constant="8" id="32j-qw-fAa"/>
                             <constraint firstAttribute="centerX" secondItem="RR4-ff-sRm" secondAttribute="centerX" id="Dxw-q2-esu"/>
+                            <constraint firstAttribute="centerX" secondItem="WTK-5c-HKH" secondAttribute="centerX" constant="-0.5" id="Pfk-sC-uvW"/>
                             <constraint firstAttribute="centerY" secondItem="RR4-ff-sRm" secondAttribute="centerY" id="bQe-vt-GqX"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="RR4-ff-sRm"/>
+                                <exclude reference="WTK-5c-HKH"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="Dxw-q2-esu"/>
                                 <exclude reference="bQe-vt-GqX"/>
+                                <exclude reference="32j-qw-fAa"/>
+                                <exclude reference="Pfk-sC-uvW"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="RR4-ff-sRm"/>
+                                <include reference="WTK-5c-HKH"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="Dxw-q2-esu"/>
                                 <include reference="bQe-vt-GqX"/>
+                                <include reference="32j-qw-fAa"/>
+                                <include reference="Pfk-sC-uvW"/>
                             </mask>
                         </variation>
                     </view>
