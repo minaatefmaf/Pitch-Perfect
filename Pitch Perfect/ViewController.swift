@@ -27,5 +27,10 @@ class ViewController: UIViewController {
         labelBelowRecordingButton.hidden = false
     }
 
+    @IBAction func stopButton(sender: UIButton) {
+        // Hide the "recording" text
+        labelBelowRecordingButton.hidden = true
+    }
+    
 }
 
