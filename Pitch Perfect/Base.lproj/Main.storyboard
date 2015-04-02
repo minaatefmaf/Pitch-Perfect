@@ -21,20 +21,29 @@
                                 <state key="normal" image="microphone">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="150" y="250" width="100" height="100"/>
-                                </variation>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="RR4-ff-sRm" secondAttribute="centerX" id="Dxw-q2-esu"/>
+                            <constraint firstAttribute="centerY" secondItem="RR4-ff-sRm" secondAttribute="centerY" id="bQe-vt-GqX"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="RR4-ff-sRm"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Dxw-q2-esu"/>
+                                <exclude reference="bQe-vt-GqX"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="RR4-ff-sRm"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Dxw-q2-esu"/>
+                                <include reference="bQe-vt-GqX"/>
                             </mask>
                         </variation>
                     </view>
