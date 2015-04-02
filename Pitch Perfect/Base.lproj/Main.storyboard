@@ -41,7 +41,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.66402964549999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="WTK-5c-HKH" firstAttribute="top" secondItem="RR4-ff-sRm" secondAttribute="bottom" constant="8" id="32j-qw-fAa"/>
                             <constraint firstAttribute="centerX" secondItem="RR4-ff-sRm" secondAttribute="centerX" id="Dxw-q2-esu"/>
