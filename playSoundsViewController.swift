@@ -10,10 +10,18 @@ import UIKit
 import AVFoundation
 
 class playSoundsViewController: UIViewController {
+    
+    var audioPlayer: AVAudioPlayer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        var filePath = NSBundle.mainBundle().pathForResource("movie_qoute", ofType: "mp3")
+        // Add a path to our movie_qoute.mp3 file.
+        if let filePath = NSBundle.mainBundle().pathForResource("movie_qoute", ofType: "mp3"){
+            let filePathUrl = NSURL.fileURLWithPath(filePath)
+            audioPlayer = AVAudioPlayer(contentsOfURL: filePathUrl, error: nil)
+        } else {
+            println("the filePath is empty")
+        }
     }
 
     override func didReceiveMemoryWarning() {
