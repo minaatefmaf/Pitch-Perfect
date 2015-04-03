@@ -46,6 +46,11 @@ class playSoundsViewController: UIViewController {
         
     }
     
+    @IBAction func playDarthvaderAudio(sender: UIButton) {
+        // Play the audio with low pitch
+        changePitchEffect(-1000)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
