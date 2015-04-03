@@ -15,6 +15,7 @@ class playSoundsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Add a path to our movie_qoute.mp3 file.
         if let filePath = NSBundle.mainBundle().pathForResource("movie_quote", ofType: "mp3"){
             // change the file path url from string to NSURL and use it to initiate the AVAudioPlayer instance

@@ -39,6 +39,7 @@ class RecordSoundsViewController: UIViewController {
         stopButton.hidden = false
         // Disabling the record button so that the user of our app will now not be able to accidentally press the record button twice.
         recordButton.enabled = false
+        
         // Record the user's voice
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
         
@@ -64,8 +65,10 @@ class RecordSoundsViewController: UIViewController {
     @IBAction func stopButton(sender: UIButton) {
         // Hide the "recording" text
         labelBelowRecordingButton.hidden = true
+        
         // Stop recording the user's voice
         audioRecorder.stop()
+        // Deactivate the audio session
         var audioSession = AVAudioSession.sharedInstance()
         audioSession.setActive(false, error: nil)
     }
