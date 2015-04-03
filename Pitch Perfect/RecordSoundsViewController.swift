@@ -31,6 +31,8 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     override func viewWillAppear(animated: Bool) {
         // Hide the stop button
         stopButton.hidden = true
+        // Enable the record button
+        recordButton.enabled = true
     }
 
     @IBAction func recordAudio(sender: UIButton) {
@@ -65,8 +67,17 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     }
 
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder!, successfully flag: Bool) {
-        // Save the recorded audio
-        recordedAudio = RecordedAudio(filePathUrl: recorder.url, title: recorder.url.lastPathComponent)
+        if(flag){
+            // Save the recorded audio
+            recordedAudio = RecordedAudio(filePathUrl: recorder.url, title: recorder.url.lastPathComponent)
+            
+            // Move to the next scene (aka perform segue)
+            self.performSegueWithIdentifier("stopRecording", sender: recordedAudio)
+        } else {
+            println("Recordins was not successful")
+            recordButton.enabled = true
+            stopButton.hidden = true
+        }
     }
     
     @IBAction func stopButton(sender: UIButton) {
