@@ -44,6 +44,10 @@ class playSoundsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func stopPlayedSounds(sender: UIButton) {
+        audioPlayer.stop()
+    }
+    
     func playAudioWithDifferentRates(rate: Float, startFromTheBeginning: Bool){
         audioPlayer.stop()
         audioPlayer.rate = rate
