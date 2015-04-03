@@ -33,6 +33,12 @@ class playSoundsViewController: UIViewController {
         audioPlayer.play()
     }
 
+    @IBAction func playFastAudio(sender: UIButton) {
+        // Play audio in fast mode
+        playAudioWithDifferentRates(1.5, startFromTheBeginning: true)
+        audioPlayer.play()
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
