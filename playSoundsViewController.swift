@@ -51,6 +51,14 @@ class playSoundsViewController: UIViewController {
         changePitchEffect(-1000)
     }
     
+    @IBAction func playEchoAudio(sender: UIButton) {
+        // TODO: play the audio with echo effect
+    }
+    
+    @IBAction func playReverbAudio(sender: UIButton) {
+        // TODO: play the audio with reverb effect
+    }
+    
     @IBAction func stopPlayedSounds(sender: UIButton) {
         stopAudio()
     }
