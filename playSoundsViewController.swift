@@ -7,13 +7,13 @@
 //
 
 import UIKit
+import AVFoundation
 
 class playSoundsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        var filePath = NSBundle.mainBundle().pathForResource("movie_qoute", ofType: "mp3")
     }
 
     override func didReceiveMemoryWarning() {
