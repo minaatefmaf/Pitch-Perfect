@@ -32,6 +32,8 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         reRecordButton.hidden = false
         pauseButton.hidden = false
         stopButton.hidden = false
+        // Enable the pause button
+        pauseButton.enabled = true
         // Disabling the record button so that the user of our app will now not be able to accidentally press the record button twice.
         recordButton.enabled = false
         
@@ -84,6 +86,15 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     @IBAction func reRecordAudio(sender: UIButton) {
         initiateTheScene()
+    }
+    
+    @IBAction func pauseRecording(sender: UIButton) {
+        // Enable the record button
+        recordButton.enabled = true
+        // Change the label below the recording button to "resume"
+        labelBelowRecordingButton.text = "resume"
+        // Disable the pause button
+        pauseButton.enabled = false
     }
     
     @IBAction func stopButton(sender: UIButton) {
