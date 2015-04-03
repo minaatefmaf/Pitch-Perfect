@@ -86,6 +86,7 @@
                     <navigationItem key="navigationItem" title="Record" id="dyh-H9-pKo"/>
                     <connections>
                         <outlet property="labelBelowRecordingButton" destination="WTK-5c-HKH" id="tNE-L9-z5Y"/>
+                        <outlet property="recordButton" destination="RR4-ff-sRm" id="cb0-5Z-SGw"/>
                         <outlet property="stopButton" destination="zaD-uM-zfU" id="PFC-eN-VHM"/>
                     </connections>
                 </viewController>

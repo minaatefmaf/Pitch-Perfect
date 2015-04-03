@@ -12,6 +12,7 @@ class RecordSoundsViewController: UIViewController {
 
     @IBOutlet weak var labelBelowRecordingButton: UILabel!
     @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var recordButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,8 @@ class RecordSoundsViewController: UIViewController {
         labelBelowRecordingButton.hidden = false
         // Show the stop button
         stopButton.hidden = false
+        // Disabling the record button so that the user of our app will now not be able to accidentally press the record button twice.
+        recordButton.enabled = false
     }
 
     @IBAction func stopButton(sender: UIButton) {
