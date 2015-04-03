@@ -14,12 +14,16 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     @IBOutlet weak var labelBelowRecordingButton: UILabel!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var recordButton: UIButton!
+    @IBOutlet weak var reRecordButton: UIButton!
+    @IBOutlet weak var pauseButton: UIButton!
 
     var audioRecorder: AVAudioRecorder!
     var recordedAudio: RecordedAudio!
 
     override func viewWillAppear(animated: Bool) {
-        // Hide the stop button
+        // Initially hide the re-record, pause, and stop buttons
+        reRecordButton.hidden = true
+        pauseButton.hidden = true
         stopButton.hidden = true
         // Enable the record button
         recordButton.enabled = true

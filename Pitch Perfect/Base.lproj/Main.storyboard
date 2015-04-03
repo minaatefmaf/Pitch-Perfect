@@ -114,6 +114,8 @@
                     <navigationItem key="navigationItem" title="Record" id="dyh-H9-pKo"/>
                     <connections>
                         <outlet property="labelBelowRecordingButton" destination="WTK-5c-HKH" id="tNE-L9-z5Y"/>
+                        <outlet property="pauseButton" destination="NIi-op-4Xb" id="7GX-Io-fez"/>
+                        <outlet property="reRecordButton" destination="K7v-7I-g4c" id="age-tK-tvv"/>
                         <outlet property="recordButton" destination="RR4-ff-sRm" id="cb0-5Z-SGw"/>
                         <outlet property="stopButton" destination="zaD-uM-zfU" id="PFC-eN-VHM"/>
                         <segue destination="9jT-Tl-THi" kind="show" identifier="stopRecording" id="d4h-1R-vZM"/>
