@@ -188,6 +188,18 @@
                                     <action selector="playDarthvaderAudio:" destination="9jT-Tl-THi" eventType="touchUpInside" id="nX7-fO-KZb"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6i0-fI-q7y">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="echo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Xp-H6-qQo">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="reverb">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.72156862745098038" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -199,12 +211,18 @@
                             <constraint firstItem="it0-Em-yWW" firstAttribute="top" secondItem="0eV-Y5-WeQ" secondAttribute="bottom" constant="57" id="4ny-qK-KHh">
                                 <variation key="widthClass=compact" constant="50"/>
                             </constraint>
+                            <constraint firstItem="6i0-fI-q7y" firstAttribute="top" secondItem="ZU6-eu-ye3" secondAttribute="bottom" constant="49" id="7D8-Ke-yhK">
+                                <variation key="widthClass=compact" constant="36"/>
+                            </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="Z4u-Uv-b3j" secondAttribute="trailing" constant="20" id="9vR-iV-dwC">
                                 <variation key="widthClass=compact" constant="25"/>
                             </constraint>
+                            <constraint firstAttribute="trailingMargin" secondItem="9Xp-H6-qQo" secondAttribute="trailing" constant="35" id="Ioo-dX-CNd"/>
                             <constraint firstItem="juE-qX-iBG" firstAttribute="top" secondItem="CP5-cb-Lmc" secondAttribute="bottom" constant="20" id="QUL-og-h25"/>
                             <constraint firstItem="ZU6-eu-ye3" firstAttribute="top" secondItem="it0-Em-yWW" secondAttribute="bottom" constant="36" id="SEp-lc-Jpc"/>
                             <constraint firstAttribute="centerX" secondItem="CP5-cb-Lmc" secondAttribute="centerX" id="ihW-Xe-x0n"/>
+                            <constraint firstItem="9Xp-H6-qQo" firstAttribute="top" secondItem="3iV-au-w2F" secondAttribute="bottom" constant="36" id="o1z-UV-tLm"/>
+                            <constraint firstItem="6i0-fI-q7y" firstAttribute="leading" secondItem="tGp-s5-e6g" secondAttribute="leadingMargin" constant="35" id="o9C-Xt-Pea"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3iV-au-w2F" secondAttribute="trailing" constant="25" id="pq2-Gp-50Y"/>
                             <constraint firstItem="Z4u-Uv-b3j" firstAttribute="top" secondItem="0eV-Y5-WeQ" secondAttribute="bottom" constant="50" id="r66-g2-UBw"/>
                         </constraints>
@@ -215,18 +233,24 @@
                                 <exclude reference="CP5-cb-Lmc"/>
                                 <exclude reference="ZU6-eu-ye3"/>
                                 <exclude reference="3iV-au-w2F"/>
+                                <exclude reference="6i0-fI-q7y"/>
+                                <exclude reference="9Xp-H6-qQo"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="QUL-og-h25"/>
-                                <exclude reference="3jB-k3-oVJ"/>
-                                <exclude reference="pq2-Gp-50Y"/>
-                                <exclude reference="ihW-Xe-x0n"/>
-                                <exclude reference="9vR-iV-dwC"/>
-                                <exclude reference="r66-g2-UBw"/>
-                                <exclude reference="1j6-Dj-1cu"/>
-                                <exclude reference="SEp-lc-Jpc"/>
                                 <exclude reference="0cf-Jv-jVP"/>
                                 <exclude reference="4ny-qK-KHh"/>
+                                <exclude reference="1j6-Dj-1cu"/>
+                                <exclude reference="SEp-lc-Jpc"/>
+                                <exclude reference="9vR-iV-dwC"/>
+                                <exclude reference="r66-g2-UBw"/>
+                                <exclude reference="3jB-k3-oVJ"/>
+                                <exclude reference="pq2-Gp-50Y"/>
+                                <exclude reference="7D8-Ke-yhK"/>
+                                <exclude reference="o9C-Xt-Pea"/>
+                                <exclude reference="Ioo-dX-CNd"/>
+                                <exclude reference="o1z-UV-tLm"/>
+                                <exclude reference="ihW-Xe-x0n"/>
+                                <exclude reference="QUL-og-h25"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -236,18 +260,24 @@
                                 <include reference="CP5-cb-Lmc"/>
                                 <include reference="ZU6-eu-ye3"/>
                                 <include reference="3iV-au-w2F"/>
+                                <include reference="6i0-fI-q7y"/>
+                                <include reference="9Xp-H6-qQo"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="QUL-og-h25"/>
-                                <include reference="3jB-k3-oVJ"/>
-                                <include reference="pq2-Gp-50Y"/>
-                                <include reference="ihW-Xe-x0n"/>
-                                <include reference="9vR-iV-dwC"/>
-                                <include reference="r66-g2-UBw"/>
-                                <include reference="1j6-Dj-1cu"/>
-                                <include reference="SEp-lc-Jpc"/>
                                 <include reference="0cf-Jv-jVP"/>
                                 <include reference="4ny-qK-KHh"/>
+                                <include reference="1j6-Dj-1cu"/>
+                                <include reference="SEp-lc-Jpc"/>
+                                <include reference="9vR-iV-dwC"/>
+                                <include reference="r66-g2-UBw"/>
+                                <include reference="3jB-k3-oVJ"/>
+                                <include reference="pq2-Gp-50Y"/>
+                                <include reference="7D8-Ke-yhK"/>
+                                <include reference="o9C-Xt-Pea"/>
+                                <include reference="Ioo-dX-CNd"/>
+                                <include reference="o1z-UV-tLm"/>
+                                <include reference="ihW-Xe-x0n"/>
+                                <include reference="QUL-og-h25"/>
                             </mask>
                         </variation>
                     </view>
@@ -278,10 +308,12 @@
     <resources>
         <image name="chipmunk" width="100" height="100"/>
         <image name="darthvader" width="100" height="100"/>
+        <image name="echo" width="80" height="80"/>
         <image name="fast" width="100" height="100"/>
         <image name="microphone" width="100" height="100"/>
         <image name="pause" width="50" height="50"/>
         <image name="rerecord" width="50" height="50"/>
+        <image name="reverb" width="80" height="80"/>
         <image name="slow" width="100" height="100"/>
         <image name="stop" width="50" height="50"/>
     </resources>
