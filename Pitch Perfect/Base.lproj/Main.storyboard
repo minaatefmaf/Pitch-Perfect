@@ -51,6 +51,15 @@
                                     <rect key="frame" x="16" y="530" width="50" height="50"/>
                                 </variation>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NIi-op-4Xb">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="pause">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="74" y="530" width="50" height="50"/>
+                                </variation>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.72156862745098038" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -67,6 +76,7 @@
                                 <exclude reference="WTK-5c-HKH"/>
                                 <exclude reference="zaD-uM-zfU"/>
                                 <exclude reference="K7v-7I-g4c"/>
+                                <exclude reference="NIi-op-4Xb"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="TNl-ue-g0h"/>
@@ -83,6 +93,7 @@
                                 <include reference="WTK-5c-HKH"/>
                                 <include reference="zaD-uM-zfU"/>
                                 <include reference="K7v-7I-g4c"/>
+                                <include reference="NIi-op-4Xb"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="TNl-ue-g0h"/>
@@ -255,6 +266,7 @@
         <image name="darthvader" width="100" height="100"/>
         <image name="fast" width="100" height="100"/>
         <image name="microphone" width="100" height="100"/>
+        <image name="pause" width="50" height="50"/>
         <image name="rerecord" width="50" height="50"/>
         <image name="slow" width="100" height="100"/>
         <image name="stop" width="50" height="50"/>
