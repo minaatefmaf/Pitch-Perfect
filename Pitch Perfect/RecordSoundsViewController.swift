@@ -36,7 +36,9 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         // Show text "recording"
         labelBelowRecordingButton.text = "recording"
 
-        // Show the stop button
+        // Show the re-record, pause, and stop buttons
+        reRecordButton.hidden = false
+        pauseButton.hidden = false
         stopButton.hidden = false
         // Disabling the record button so that the user of our app will now not be able to accidentally press the record button twice.
         recordButton.enabled = false
