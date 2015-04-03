@@ -47,6 +47,9 @@
                                 <state key="normal" image="rerecord">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="reRecordAudio:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vfx-KB-fy6"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NIi-op-4Xb">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -77,16 +80,16 @@
                                 <exclude reference="NIi-op-4Xb"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Dxw-q2-esu"/>
-                                <exclude reference="bQe-vt-GqX"/>
+                                <exclude reference="TNl-ue-g0h"/>
+                                <exclude reference="ayU-ko-KDr"/>
+                                <exclude reference="gGZ-21-INF"/>
                                 <exclude reference="32j-qw-fAa"/>
                                 <exclude reference="Pfk-sC-uvW"/>
                                 <exclude reference="0VY-LO-jR5"/>
                                 <exclude reference="GC9-Zo-9IY"/>
+                                <exclude reference="Dxw-q2-esu"/>
+                                <exclude reference="bQe-vt-GqX"/>
                                 <exclude reference="ead-4H-xie"/>
-                                <exclude reference="TNl-ue-g0h"/>
-                                <exclude reference="ayU-ko-KDr"/>
-                                <exclude reference="gGZ-21-INF"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -98,16 +101,16 @@
                                 <include reference="NIi-op-4Xb"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Dxw-q2-esu"/>
-                                <include reference="bQe-vt-GqX"/>
+                                <include reference="TNl-ue-g0h"/>
+                                <include reference="ayU-ko-KDr"/>
+                                <include reference="gGZ-21-INF"/>
                                 <include reference="32j-qw-fAa"/>
                                 <include reference="Pfk-sC-uvW"/>
                                 <include reference="0VY-LO-jR5"/>
                                 <include reference="GC9-Zo-9IY"/>
+                                <include reference="Dxw-q2-esu"/>
+                                <include reference="bQe-vt-GqX"/>
                                 <include reference="ead-4H-xie"/>
-                                <include reference="TNl-ue-g0h"/>
-                                <include reference="ayU-ko-KDr"/>
-                                <include reference="gGZ-21-INF"/>
                             </mask>
                         </variation>
                     </view>

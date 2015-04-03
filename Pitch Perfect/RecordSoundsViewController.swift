@@ -21,15 +21,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     var recordedAudio: RecordedAudio!
 
     override func viewWillAppear(animated: Bool) {
-        // Initially hide the re-record, pause, and stop buttons
-        reRecordButton.hidden = true
-        pauseButton.hidden = true
-        stopButton.hidden = true
-        // Enable the record button
-        recordButton.enabled = true
-        // Make sure the label below the recording button is "Tab to record"
-        labelBelowRecordingButton.hidden = false
-        labelBelowRecordingButton.text = "Tab to Record"
+        initiateTheScene()
     }
 
     @IBAction func recordAudio(sender: UIButton) {
@@ -90,6 +82,10 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         }
     }
     
+    @IBAction func reRecordAudio(sender: UIButton) {
+        initiateTheScene()
+    }
+    
     @IBAction func stopButton(sender: UIButton) {
         // Hide the "recording" text
         labelBelowRecordingButton.hidden = true
@@ -101,5 +97,17 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         audioSession.setActive(false, error: nil)
     }
     
+    func initiateTheScene() {
+        // Initially hide the re-record, pause, and stop buttons
+        reRecordButton.hidden = true
+        pauseButton.hidden = true
+        stopButton.hidden = true
+        // Enable the record button
+        recordButton.enabled = true
+        // Make sure the label below the recording button is "Tab to record"
+        labelBelowRecordingButton.hidden = false
+        labelBelowRecordingButton.text = "Tab to Record"
+    }
+
 }
 
