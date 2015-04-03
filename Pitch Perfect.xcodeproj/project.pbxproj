@@ -40,7 +40,7 @@
 		2EB234701ACDE11400284E90 /* Pitch PerfectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pitch PerfectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EB234751ACDE11400284E90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EB234761ACDE11400284E90 /* Pitch_PerfectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pitch_PerfectTests.swift; sourceTree = "<group>"; };
-		2ECF60941ACE90D300392695 /* playSoundsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = playSoundsViewController.swift; sourceTree = "<group>"; };
+		2ECF60941ACE90D300392695 /* playSoundsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = playSoundsViewController.swift; path = ../playSoundsViewController.swift; sourceTree = "<group>"; };
 		2ECF60961ACE952000392695 /* movie_quote.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = movie_quote.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,7 +65,6 @@
 		2EB234521ACDE11400284E90 = {
 			isa = PBXGroup;
 			children = (
-				2ECF60941ACE90D300392695 /* playSoundsViewController.swift */,
 				2EB2345D1ACDE11400284E90 /* Pitch Perfect */,
 				2EB234731ACDE11400284E90 /* Pitch PerfectTests */,
 				2EB2345C1ACDE11400284E90 /* Products */,
@@ -84,6 +83,7 @@
 		2EB2345D1ACDE11400284E90 /* Pitch Perfect */ = {
 			isa = PBXGroup;
 			children = (
+				2ECF60941ACE90D300392695 /* playSoundsViewController.swift */,
 				2EB234601ACDE11400284E90 /* AppDelegate.swift */,
 				2EB234621ACDE11400284E90 /* RecordSoundsViewController.swift */,
 				2EB234641ACDE11400284E90 /* Main.storyboard */,
