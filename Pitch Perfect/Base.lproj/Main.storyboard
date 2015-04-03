@@ -57,12 +57,12 @@
                                 <exclude reference="zaD-uM-zfU"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Dxw-q2-esu"/>
-                                <exclude reference="bQe-vt-GqX"/>
+                                <exclude reference="TNl-ue-g0h"/>
                                 <exclude reference="32j-qw-fAa"/>
                                 <exclude reference="Pfk-sC-uvW"/>
+                                <exclude reference="Dxw-q2-esu"/>
+                                <exclude reference="bQe-vt-GqX"/>
                                 <exclude reference="ead-4H-xie"/>
-                                <exclude reference="TNl-ue-g0h"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -72,17 +72,18 @@
                                 <include reference="zaD-uM-zfU"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Dxw-q2-esu"/>
-                                <include reference="bQe-vt-GqX"/>
+                                <include reference="TNl-ue-g0h"/>
                                 <include reference="32j-qw-fAa"/>
                                 <include reference="Pfk-sC-uvW"/>
+                                <include reference="Dxw-q2-esu"/>
+                                <include reference="bQe-vt-GqX"/>
                                 <include reference="ead-4H-xie"/>
-                                <include reference="TNl-ue-g0h"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="labelBelowRecordingButton" destination="WTK-5c-HKH" id="tNE-L9-z5Y"/>
+                        <outlet property="stopButton" destination="zaD-uM-zfU" id="PFC-eN-VHM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
