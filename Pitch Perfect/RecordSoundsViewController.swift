@@ -19,7 +19,9 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
     var audioRecorder: AVAudioRecorder!
     var recordedAudio: RecordedAudio!
-
+    
+    var resumeRecording: Bool!
+    
     override func viewWillAppear(animated: Bool) {
         initiateTheScene()
     }
@@ -38,21 +40,26 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         recordButton.enabled = false
         
         // Record the user's voice
-        let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
         
-        let currentDateTime = NSDate()
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "ddMMyyyy-HHmmss"
-        let recordingName = formatter.stringFromDate(currentDateTime)+".wav"
-        let pathArray = [dirPath, recordingName]
-        let filePath = NSURL.fileURLWithPathComponents(pathArray)
+        if(resumeRecording == false) {
+            let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+            
+            let currentDateTime = NSDate()
+            let formatter = NSDateFormatter()
+            formatter.dateFormat = "ddMMyyyy-HHmmss"
+            let recordingName = formatter.stringFromDate(currentDateTime)+".wav"
+            let pathArray = [dirPath, recordingName]
+            let filePath = NSURL.fileURLWithPathComponents(pathArray)
+            
+            // Setup audio session
+            var session = AVAudioSession.sharedInstance()
+            session.setCategory(AVAudioSessionCategoryPlayAndRecord, error: nil)
+
+            // Initialize recorder
+            audioRecorder = AVAudioRecorder(URL: filePath, settings: nil, error: nil)
+        }
         
-        // Setup audio session
-        var session = AVAudioSession.sharedInstance()
-        session.setCategory(AVAudioSessionCategoryPlayAndRecord, error: nil)
-        
-        // Initialize and prepare the recorder
-        audioRecorder = AVAudioRecorder(URL: filePath, settings: nil, error: nil)
+        // Prepare recorder
         audioRecorder.delegate = self
         audioRecorder.meteringEnabled = true
         audioRecorder.prepareToRecord()
@@ -95,6 +102,11 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         labelBelowRecordingButton.text = "resume"
         // Disable the pause button
         pauseButton.enabled = false
+        
+        // Enable the resuming mode
+        resumeRecording = true
+        // Pause recording the user's voice
+        audioRecorder.pause()
     }
     
     @IBAction func stopButton(sender: UIButton) {
@@ -118,6 +130,9 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         // Make sure the label below the recording button is "Tab to record"
         labelBelowRecordingButton.hidden = false
         labelBelowRecordingButton.text = "Tab to Record"
+        
+        // Initially we're recording the audio for the first time
+        resumeRecording = false
     }
 
 }
