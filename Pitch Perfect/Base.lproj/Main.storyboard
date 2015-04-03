@@ -156,12 +156,12 @@
                                 <exclude reference="CP5-cb-Lmc"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="0cf-Jv-jVP"/>
-                                <exclude reference="4ny-qK-KHh"/>
+                                <exclude reference="QUL-og-h25"/>
+                                <exclude reference="ihW-Xe-x0n"/>
                                 <exclude reference="9vR-iV-dwC"/>
                                 <exclude reference="r66-g2-UBw"/>
-                                <exclude reference="ihW-Xe-x0n"/>
-                                <exclude reference="QUL-og-h25"/>
+                                <exclude reference="0cf-Jv-jVP"/>
+                                <exclude reference="4ny-qK-KHh"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -171,12 +171,12 @@
                                 <include reference="CP5-cb-Lmc"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="0cf-Jv-jVP"/>
-                                <include reference="4ny-qK-KHh"/>
+                                <include reference="QUL-og-h25"/>
+                                <include reference="ihW-Xe-x0n"/>
                                 <include reference="9vR-iV-dwC"/>
                                 <include reference="r66-g2-UBw"/>
-                                <include reference="ihW-Xe-x0n"/>
-                                <include reference="QUL-og-h25"/>
+                                <include reference="0cf-Jv-jVP"/>
+                                <include reference="4ny-qK-KHh"/>
                             </mask>
                         </variation>
                     </view>
