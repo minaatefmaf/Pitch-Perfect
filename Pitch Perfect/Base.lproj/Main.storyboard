@@ -47,28 +47,26 @@
                                 <state key="normal" image="rerecord">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="530" width="50" height="50"/>
-                                </variation>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NIi-op-4Xb">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" image="pause">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="74" y="530" width="50" height="50"/>
-                                </variation>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.72156862745098038" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="K7v-7I-g4c" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="0VY-LO-jR5"/>
                             <constraint firstItem="WTK-5c-HKH" firstAttribute="top" secondItem="RR4-ff-sRm" secondAttribute="bottom" constant="8" id="32j-qw-fAa"/>
                             <constraint firstAttribute="centerX" secondItem="RR4-ff-sRm" secondAttribute="centerX" id="Dxw-q2-esu"/>
+                            <constraint firstItem="NIi-op-4Xb" firstAttribute="leading" secondItem="K7v-7I-g4c" secondAttribute="trailing" constant="8" id="GC9-Zo-9IY"/>
                             <constraint firstAttribute="centerX" secondItem="WTK-5c-HKH" secondAttribute="centerX" constant="-0.5" id="Pfk-sC-uvW"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="zaD-uM-zfU" secondAttribute="bottom" constant="20" id="TNl-ue-g0h"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="NIi-op-4Xb" secondAttribute="bottom" constant="20" id="ayU-ko-KDr"/>
                             <constraint firstAttribute="centerY" secondItem="RR4-ff-sRm" secondAttribute="centerY" id="bQe-vt-GqX"/>
                             <constraint firstAttribute="centerX" secondItem="zaD-uM-zfU" secondAttribute="centerX" id="ead-4H-xie"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="K7v-7I-g4c" secondAttribute="bottom" constant="20" id="gGZ-21-INF"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -79,12 +77,16 @@
                                 <exclude reference="NIi-op-4Xb"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="TNl-ue-g0h"/>
-                                <exclude reference="32j-qw-fAa"/>
-                                <exclude reference="Pfk-sC-uvW"/>
                                 <exclude reference="Dxw-q2-esu"/>
                                 <exclude reference="bQe-vt-GqX"/>
+                                <exclude reference="32j-qw-fAa"/>
+                                <exclude reference="Pfk-sC-uvW"/>
+                                <exclude reference="0VY-LO-jR5"/>
+                                <exclude reference="GC9-Zo-9IY"/>
                                 <exclude reference="ead-4H-xie"/>
+                                <exclude reference="TNl-ue-g0h"/>
+                                <exclude reference="ayU-ko-KDr"/>
+                                <exclude reference="gGZ-21-INF"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -96,12 +98,16 @@
                                 <include reference="NIi-op-4Xb"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="TNl-ue-g0h"/>
-                                <include reference="32j-qw-fAa"/>
-                                <include reference="Pfk-sC-uvW"/>
                                 <include reference="Dxw-q2-esu"/>
                                 <include reference="bQe-vt-GqX"/>
+                                <include reference="32j-qw-fAa"/>
+                                <include reference="Pfk-sC-uvW"/>
+                                <include reference="0VY-LO-jR5"/>
+                                <include reference="GC9-Zo-9IY"/>
                                 <include reference="ead-4H-xie"/>
+                                <include reference="TNl-ue-g0h"/>
+                                <include reference="ayU-ko-KDr"/>
+                                <include reference="gGZ-21-INF"/>
                             </mask>
                         </variation>
                     </view>
