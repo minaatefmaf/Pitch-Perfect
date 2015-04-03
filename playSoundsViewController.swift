@@ -16,12 +16,21 @@ class playSoundsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Add a path to our movie_qoute.mp3 file.
-        if let filePath = NSBundle.mainBundle().pathForResource("movie_qoute", ofType: "mp3"){
+        if let filePath = NSBundle.mainBundle().pathForResource("movie_quote", ofType: "mp3"){
+            // change the file path url from string to NSURL and use it to initiate the AVAudioPlayer instance
             let filePathUrl = NSURL.fileURLWithPath(filePath)
             audioPlayer = AVAudioPlayer(contentsOfURL: filePathUrl, error: nil)
+            // Enable the rate property to use it in playing the audio either in slow or fast modes
+            audioPlayer.enableRate = true
         } else {
             println("the filePath is empty")
         }
+    }
+    
+    @IBAction func playSlowAudio(sender: UIButton) {
+        // Play audio slowly
+        playAudioWithDifferentRates(0.5, startFromTheBeginning: true)
+        audioPlayer.play()
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,6 +38,14 @@ class playSoundsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func playAudioWithDifferentRates(rate: Float, startFromTheBeginning: Bool){
+        audioPlayer.stop()
+        audioPlayer.rate = rate
+        if startFromTheBeginning {
+            audioPlayer.currentTime = 0.0
+        }
+        audioPlayer.play()
+    }
 
     /*
     // MARK: - Navigation
