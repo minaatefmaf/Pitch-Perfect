@@ -92,15 +92,16 @@
             </objects>
             <point key="canvasLocation" x="1458" y="356"/>
         </scene>
-        <!--View Controller-->
+        <!--Play Sounds View Controller-->
         <scene sceneID="rAG-eN-zft">
             <objects>
-                <viewController id="9jT-Tl-THi" sceneMemberID="viewController">
+                <viewController id="9jT-Tl-THi" customClass="playSoundsViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0eV-Y5-WeQ"/>
                         <viewControllerLayoutGuide type="bottom" id="juE-qX-iBG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tGp-s5-e6g">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

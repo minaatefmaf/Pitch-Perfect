@@ -13,6 +13,7 @@
 		2EB234681ACDE11400284E90 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EB234671ACDE11400284E90 /* Images.xcassets */; };
 		2EB2346B1ACDE11400284E90 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EB234691ACDE11400284E90 /* LaunchScreen.xib */; };
 		2EB234771ACDE11400284E90 /* Pitch_PerfectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB234761ACDE11400284E90 /* Pitch_PerfectTests.swift */; };
+		2ECF60951ACE90D300392695 /* playSoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECF60941ACE90D300392695 /* playSoundsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		2EB234701ACDE11400284E90 /* Pitch PerfectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pitch PerfectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EB234751ACDE11400284E90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EB234761ACDE11400284E90 /* Pitch_PerfectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pitch_PerfectTests.swift; sourceTree = "<group>"; };
+		2ECF60941ACE90D300392695 /* playSoundsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = playSoundsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 		2EB234521ACDE11400284E90 = {
 			isa = PBXGroup;
 			children = (
+				2ECF60941ACE90D300392695 /* playSoundsViewController.swift */,
 				2EB2345D1ACDE11400284E90 /* Pitch Perfect */,
 				2EB234731ACDE11400284E90 /* Pitch PerfectTests */,
 				2EB2345C1ACDE11400284E90 /* Products */,
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2ECF60951ACE90D300392695 /* playSoundsViewController.swift in Sources */,
 				2EB234631ACDE11400284E90 /* ViewController.swift in Sources */,
 				2EB234611ACDE11400284E90 /* AppDelegate.swift in Sources */,
 			);
@@ -405,6 +409,7 @@
 				2EB2347C1ACDE11500284E90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2EB2347D1ACDE11500284E90 /* Build configuration list for PBXNativeTarget "Pitch PerfectTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +418,7 @@
 				2EB2347F1ACDE11500284E90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
