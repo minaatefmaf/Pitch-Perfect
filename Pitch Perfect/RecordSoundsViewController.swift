@@ -23,11 +23,15 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         stopButton.hidden = true
         // Enable the record button
         recordButton.enabled = true
+        // Make sure the label below the recording button is "Tab to record"
+        labelBelowRecordingButton.hidden = false
+        labelBelowRecordingButton.text = "Tab to Record"
     }
 
     @IBAction func recordAudio(sender: UIButton) {
         // Show text "recording"
-        labelBelowRecordingButton.hidden = false
+        labelBelowRecordingButton.text = "recording"
+
         // Show the stop button
         stopButton.hidden = false
         // Disabling the record button so that the user of our app will now not be able to accidentally press the record button twice.
