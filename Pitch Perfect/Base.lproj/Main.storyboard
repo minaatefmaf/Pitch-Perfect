@@ -123,6 +123,12 @@
                                     <action selector="playFastAudio:" destination="9jT-Tl-THi" eventType="touchUpInside" id="eve-e5-n2D"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CP5-cb-Lmc">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="stop">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -135,30 +141,38 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Z4u-Uv-b3j" secondAttribute="trailing" constant="20" id="9vR-iV-dwC">
                                 <variation key="widthClass=compact" constant="25"/>
                             </constraint>
+                            <constraint firstItem="juE-qX-iBG" firstAttribute="top" secondItem="CP5-cb-Lmc" secondAttribute="bottom" constant="20" id="QUL-og-h25"/>
+                            <constraint firstAttribute="centerX" secondItem="CP5-cb-Lmc" secondAttribute="centerX" id="ihW-Xe-x0n"/>
                             <constraint firstItem="Z4u-Uv-b3j" firstAttribute="top" secondItem="0eV-Y5-WeQ" secondAttribute="bottom" constant="50" id="r66-g2-UBw"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="it0-Em-yWW"/>
                                 <exclude reference="Z4u-Uv-b3j"/>
+                                <exclude reference="CP5-cb-Lmc"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="0cf-Jv-jVP"/>
                                 <exclude reference="4ny-qK-KHh"/>
                                 <exclude reference="9vR-iV-dwC"/>
                                 <exclude reference="r66-g2-UBw"/>
+                                <exclude reference="ihW-Xe-x0n"/>
+                                <exclude reference="QUL-og-h25"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="it0-Em-yWW"/>
                                 <include reference="Z4u-Uv-b3j"/>
+                                <include reference="CP5-cb-Lmc"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="0cf-Jv-jVP"/>
                                 <include reference="4ny-qK-KHh"/>
                                 <include reference="9vR-iV-dwC"/>
                                 <include reference="r66-g2-UBw"/>
+                                <include reference="ihW-Xe-x0n"/>
+                                <include reference="QUL-og-h25"/>
                             </mask>
                         </variation>
                     </view>
