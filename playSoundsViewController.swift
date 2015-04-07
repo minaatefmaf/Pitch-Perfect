@@ -12,6 +12,7 @@ import AVFoundation
 class playSoundsViewController: UIViewController {
     
     var audioPlayer: AVAudioPlayer!
+    var audioPlayerForEcho: AVAudioPlayer!
     var receivedAudio: RecordedAudio!
     
     var audioEngine: AVAudioEngine!
@@ -21,6 +22,9 @@ class playSoundsViewController: UIViewController {
         super.viewDidLoad()
 
         audioPlayer = AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl, error: nil)
+        // Make the another copy of the recorded audio for the echo effect.
+        audioPlayerForEcho = AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl, error: nil)
+        
         // Enable the rate property to use it in playing the audio either in slow or fast modes
         audioPlayer.enableRate = true
         
@@ -52,7 +56,14 @@ class playSoundsViewController: UIViewController {
     }
     
     @IBAction func playEchoAudio(sender: UIButton) {
-        // TODO: play the audio with echo effect
+        stopAudio()
+        
+        // Play the audio with echo effect
+        var playTime: NSTimeInterval
+        playTime = audioPlayerForEcho.deviceCurrentTime + 1/2
+
+        audioPlayer.play()
+        audioPlayerForEcho.playAtTime(playTime)
     }
     
     @IBAction func playReverbAudio(sender: UIButton) {
@@ -94,7 +105,12 @@ class playSoundsViewController: UIViewController {
     
     func stopAudio() {
         audioPlayer.stop()
+        audioPlayerForEcho.stop()
         audioEngine.stop()
         audioEngine.reset()
+        
+        // Make sure that the audio player has its default settings for rate and current time (In case we started the echo effect while (interrupting it) or after playing the sound in slow/fast modes)
+        audioPlayer.rate = 1.0
+        audioPlayer.currentTime = 0.0
     }
 }
