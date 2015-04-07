@@ -67,7 +67,25 @@ class playSoundsViewController: UIViewController {
     }
     
     @IBAction func playReverbAudio(sender: UIButton) {
-        // TODO: play the audio with reverb effect
+        stopAudio()
+        
+        // Play the audio with reverb effect
+        var audioPlayerNode = AVAudioPlayerNode()
+        audioEngine.attachNode(audioPlayerNode)
+        
+        var changeReverbEffect = AVAudioUnitReverb()
+        changeReverbEffect.loadFactoryPreset(.Cathedral)
+        changeReverbEffect.wetDryMix = 50
+        audioEngine.attachNode(changeReverbEffect)
+        
+        audioEngine.connect(audioPlayerNode, to: changeReverbEffect, format: nil)
+        audioEngine.connect(changeReverbEffect, to: audioEngine.outputNode, format: nil)
+        
+        audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
+        audioEngine.startAndReturnError(nil)
+        
+        audioPlayerNode.play()
+
     }
     
     @IBAction func stopPlayedSounds(sender: UIButton) {
