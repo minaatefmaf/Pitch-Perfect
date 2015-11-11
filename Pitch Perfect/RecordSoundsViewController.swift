@@ -42,7 +42,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         // Record the user's voice
         
         if(resumeRecording == false) {
-            let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
+            let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] 
             
             let currentDateTime = NSDate()
             let formatter = NSDateFormatter()
@@ -52,11 +52,23 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
             let filePath = NSURL.fileURLWithPathComponents(pathArray)
             
             // Setup audio session
-            var session = AVAudioSession.sharedInstance()
-            session.setCategory(AVAudioSessionCategoryPlayAndRecord, error: nil)
+            let session = AVAudioSession.sharedInstance()
+            do {
+                try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            } catch _ {
+            }
 
             // Initialize recorder
-            audioRecorder = AVAudioRecorder(URL: filePath, settings: nil, error: nil)
+            let settings = [
+                AVEncoderAudioQualityKey: AVAudioQuality.High.rawValue
+            ]
+            do {
+                try audioRecorder = AVAudioRecorder(URL: filePath!, settings: settings)
+            } catch {
+                print("Seetings!!")
+                //abort()
+            }
+            
         }
         
         // Prepare recorder
@@ -66,7 +78,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         audioRecorder.record()
     }
 
-    func audioRecorderDidFinishRecording(recorder: AVAudioRecorder!, successfully flag: Bool) {
+    func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
         if(flag){
             // Save the recorded audio
             recordedAudio = RecordedAudio(filePathUrl: recorder.url, title: recorder.url.lastPathComponent)
@@ -74,7 +86,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
             // Move to the next scene (aka perform segue)
             self.performSegueWithIdentifier("stopRecording", sender: recordedAudio)
         } else {
-            println("Recording was not successful")
+            print("Recording was not successful")
             recordButton.enabled = true
             stopButton.hidden = true
         }
@@ -116,8 +128,11 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         // Stop recording the user's voice
         audioRecorder.stop()
         // Deactivate the audio session
-        var audioSession = AVAudioSession.sharedInstance()
-        audioSession.setActive(false, error: nil)
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setActive(false)
+        } catch _ {
+        }
     }
     
     func initiateTheScene() {
