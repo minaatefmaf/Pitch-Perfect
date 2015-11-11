@@ -60,6 +60,8 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
             // Initialize recorder
             let settings = [
+                //AVSampleRateKey: 12000.0,
+                AVNumberOfChannelsKey: 1 as NSNumber,
                 AVEncoderAudioQualityKey: AVAudioQuality.High.rawValue
             ]
             do {
@@ -131,6 +133,8 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         let audioSession = AVAudioSession.sharedInstance()
         do {
             try audioSession.setActive(false)
+            // To play the audio on the loud speaker
+            try audioSession.setCategory(AVAudioSessionCategoryAmbient)
         } catch _ {
         }
     }
