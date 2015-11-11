@@ -133,7 +133,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         let audioSession = AVAudioSession.sharedInstance()
         do {
             try audioSession.setActive(false)
-            // To play the audio on the loud speaker
+            // To Play the audio on the loud speaker mode
             try audioSession.setCategory(AVAudioSessionCategoryAmbient)
         } catch _ {
         }
