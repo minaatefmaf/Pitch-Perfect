@@ -11,12 +11,12 @@ import AVFoundation
 
 class playSoundsViewController: UIViewController {
     
-    var audioPlayer: AVAudioPlayer!
-    var audioPlayerForEcho: AVAudioPlayer!
+    private var audioPlayer: AVAudioPlayer!
+    private var audioPlayerForEcho: AVAudioPlayer!
     var receivedAudio: RecordedAudio!
     
-    var audioEngine: AVAudioEngine!
-    var audioFile: AVAudioFile!
+    private var audioEngine: AVAudioEngine!
+    private var audioFile: AVAudioFile!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,30 +32,30 @@ class playSoundsViewController: UIViewController {
         audioFile = try? AVAudioFile(forReading: receivedAudio.filePathUrl as URL)
     }
     
-    @IBAction func playSlowAudio(_ sender: UIButton) {
+    @IBAction private func playSlowAudio(_ sender: UIButton) {
         // Play audio slowly
         playAudioWithDifferentRates(0.5, startFromTheBeginning: true)
         audioPlayer.play()
     }
 
-    @IBAction func playFastAudio(_ sender: UIButton) {
+    @IBAction private func playFastAudio(_ sender: UIButton) {
         // Play audio in fast mode
         playAudioWithDifferentRates(1.5, startFromTheBeginning: true)
         audioPlayer.play()
     }
 
-    @IBAction func playChipmunkAudio(_ sender: UIButton) {
+    @IBAction private func playChipmunkAudio(_ sender: UIButton) {
         // Play the audio with high pitch
         changePitchEffect(1000)
         
     }
     
-    @IBAction func playDarthvaderAudio(_ sender: UIButton) {
+    @IBAction private func playDarthvaderAudio(_ sender: UIButton) {
         // Play the audio with low pitch
         changePitchEffect(-1000)
     }
     
-    @IBAction func playEchoAudio(_ sender: UIButton) {
+    @IBAction private func playEchoAudio(_ sender: UIButton) {
         stopAudio()
         
         // Play the audio with echo effect
@@ -66,7 +66,7 @@ class playSoundsViewController: UIViewController {
         audioPlayerForEcho.play(atTime: playTime)
     }
     
-    @IBAction func playReverbAudio(_ sender: UIButton) {
+    @IBAction private func playReverbAudio(_ sender: UIButton) {
         stopAudio()
         
         // Play the audio with reverb effect
@@ -91,11 +91,11 @@ class playSoundsViewController: UIViewController {
 
     }
     
-    @IBAction func stopPlayedSounds(_ sender: UIButton) {
+    @IBAction private func stopPlayedSounds(_ sender: UIButton) {
         stopAudio()
     }
     
-    func playAudioWithDifferentRates(_ rate: Float, startFromTheBeginning: Bool){
+    private func playAudioWithDifferentRates(_ rate: Float, startFromTheBeginning: Bool){
         stopAudio()
         
         audioPlayer.rate = rate
@@ -105,7 +105,7 @@ class playSoundsViewController: UIViewController {
         audioPlayer.play()
     }
     
-    func changePitchEffect(_ pitch: Float) {
+    private func changePitchEffect(_ pitch: Float) {
         stopAudio()
         
         let audioPlayerNode = AVAudioPlayerNode()
@@ -127,7 +127,7 @@ class playSoundsViewController: UIViewController {
         audioPlayerNode.play()
     }
     
-    func stopAudio() {
+    private func stopAudio() {
         audioPlayer.stop()
         audioPlayerForEcho.stop()
         audioEngine.stop()

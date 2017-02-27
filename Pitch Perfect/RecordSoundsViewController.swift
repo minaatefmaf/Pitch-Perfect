@@ -11,22 +11,22 @@ import AVFoundation
 
 class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
-    @IBOutlet weak var labelBelowRecordingButton: UILabel!
-    @IBOutlet weak var stopButton: UIButton!
-    @IBOutlet weak var recordButton: UIButton!
-    @IBOutlet weak var reRecordButton: UIButton!
-    @IBOutlet weak var pauseButton: UIButton!
+    @IBOutlet private weak var labelBelowRecordingButton: UILabel!
+    @IBOutlet private weak var stopButton: UIButton!
+    @IBOutlet private weak var recordButton: UIButton!
+    @IBOutlet private weak var reRecordButton: UIButton!
+    @IBOutlet private weak var pauseButton: UIButton!
 
-    var audioRecorder: AVAudioRecorder!
-    var recordedAudio: RecordedAudio!
+    private var audioRecorder: AVAudioRecorder!
+    private var recordedAudio: RecordedAudio!
     
-    var resumeRecording: Bool!
+    private var resumeRecording: Bool!
     
     override func viewWillAppear(_ animated: Bool) {
         initiateTheScene()
     }
 
-    @IBAction func recordAudio(_ sender: UIButton) {
+    @IBAction private func recordAudio(_ sender: UIButton) {
         // Show text "recording"
         labelBelowRecordingButton.text = "recording"
 
@@ -108,11 +108,11 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         }
     }
     
-    @IBAction func reRecordAudio(_ sender: UIButton) {
+    @IBAction private func reRecordAudio(_ sender: UIButton) {
         initiateTheScene()
     }
     
-    @IBAction func pauseRecording(_ sender: UIButton) {
+    @IBAction private func pauseRecording(_ sender: UIButton) {
         // Enable the record button
         recordButton.isEnabled = true
         // Change the label below the recording button to "resume"
@@ -126,7 +126,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         audioRecorder.pause()
     }
     
-    @IBAction func stopButton(_ sender: UIButton) {
+    @IBAction private func stopButton(_ sender: UIButton) {
         // Hide the "recording" text
         labelBelowRecordingButton.isHidden = true
         
@@ -142,7 +142,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         }
     }
     
-    func initiateTheScene() {
+    private func initiateTheScene() {
         // Initially hide the re-record, pause, and stop buttons
         reRecordButton.isHidden = true
         pauseButton.isHidden = true
