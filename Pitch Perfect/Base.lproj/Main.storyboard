@@ -78,48 +78,6 @@
                             <constraint firstAttribute="centerX" secondItem="zaD-uM-zfU" secondAttribute="centerX" id="ead-4H-xie"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="K7v-7I-g4c" secondAttribute="bottom" constant="8" symbolic="YES" id="gGZ-21-INF"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="RR4-ff-sRm"/>
-                                <exclude reference="WTK-5c-HKH"/>
-                                <exclude reference="zaD-uM-zfU"/>
-                                <exclude reference="K7v-7I-g4c"/>
-                                <exclude reference="NIi-op-4Xb"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="TNl-ue-g0h"/>
-                                <exclude reference="ayU-ko-KDr"/>
-                                <exclude reference="gGZ-21-INF"/>
-                                <exclude reference="32j-qw-fAa"/>
-                                <exclude reference="Pfk-sC-uvW"/>
-                                <exclude reference="0VY-LO-jR5"/>
-                                <exclude reference="GC9-Zo-9IY"/>
-                                <exclude reference="Dxw-q2-esu"/>
-                                <exclude reference="bQe-vt-GqX"/>
-                                <exclude reference="ead-4H-xie"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="RR4-ff-sRm"/>
-                                <include reference="WTK-5c-HKH"/>
-                                <include reference="zaD-uM-zfU"/>
-                                <include reference="K7v-7I-g4c"/>
-                                <include reference="NIi-op-4Xb"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="TNl-ue-g0h"/>
-                                <include reference="ayU-ko-KDr"/>
-                                <include reference="gGZ-21-INF"/>
-                                <include reference="32j-qw-fAa"/>
-                                <include reference="Pfk-sC-uvW"/>
-                                <include reference="0VY-LO-jR5"/>
-                                <include reference="GC9-Zo-9IY"/>
-                                <include reference="Dxw-q2-esu"/>
-                                <include reference="bQe-vt-GqX"/>
-                                <include reference="ead-4H-xie"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Record" id="dyh-H9-pKo"/>
                     <connections>
