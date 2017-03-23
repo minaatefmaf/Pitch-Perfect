@@ -42,17 +42,11 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         // Record the user's voice
         
         if(resumeRecording == false) {
-            let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] 
-            
-            let currentDateTime = Date()
-            let formatter = DateFormatter()
-            formatter.dateFormat = "ddMMyyyy-HHmmss"
-            let recordingName = formatter.string(from: currentDateTime)+".wav"
-            let pathString = dirPath + "/" + recordingName
-            print("dirPath is: \(dirPath)")
-            print("recordingName is: \(recordingName)")
-            print("String path is: \(pathString)")
-            let filePath = URL(fileURLWithPath: pathString)
+            // Prepare the file's path
+            let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)[0] as String
+            let recordingName = "recordedVoice.wav"
+            let pathArray = [dirPath, recordingName]
+            let filePath = URL(fileURLWithPath: pathArray.joined(separator: "/"))
             
             // Setup audio session
             let session = AVAudioSession.sharedInstance()
