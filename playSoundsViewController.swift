@@ -30,6 +30,14 @@ class playSoundsViewController: UIViewController {
         
         audioEngine = AVAudioEngine()
         audioFile = try? AVAudioFile(forReading: receivedAudio.filePathUrl as URL)
+        
+        // Setup the audio session so that the played back sound works even in silent mode
+        let session = AVAudioSession.sharedInstance()
+        do {
+            try session.setCategory(AVAudioSessionCategoryPlayback, with: AVAudioSessionCategoryOptions.mixWithOthers)
+        } catch _ {
+        }
+        
     }
     
     @IBAction private func playSlowAudio(_ sender: UIButton) {
