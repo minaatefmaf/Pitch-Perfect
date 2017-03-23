@@ -28,7 +28,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
     @IBAction private func recordAudio(_ sender: UIButton) {
         // Show text "recording"
-        labelBelowRecordingButton.text = "recording"
+        labelBelowRecordingButton.text = "recording..."
 
         // Show the re-record, pause, and stop buttons
         reRecordButton.isHidden = false
@@ -110,7 +110,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         // Enable the record button
         recordButton.isEnabled = true
         // Change the label below the recording button to "resume"
-        labelBelowRecordingButton.text = "resume"
+        labelBelowRecordingButton.text = "Tab to Resume"
         // Disable the pause button
         pauseButton.isEnabled = false
         
