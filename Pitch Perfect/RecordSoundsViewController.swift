@@ -40,9 +40,9 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         recordButton.isEnabled = false
         
         // Record the user's voice
-        
         if(resumeRecording == false) {
             // Prepare the file's path
+            // Give the file a constant name "and path" so the file gets rewritten every time wih the same name
             let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)[0] as String
             let recordingName = "recordedVoice.wav"
             let pathArray = [dirPath, recordingName]
