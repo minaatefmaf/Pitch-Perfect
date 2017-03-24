@@ -21,4 +21,9 @@ struct Alerts {
     static let AudioRecordingError = "Audio Recording Error"
     static let AudioFileError = "Audio File Error"
     static let AudioEngineError = "Audio Engine Error"
+    
+    static let OkAlert = "OK"
+    static let CancelAlert = "Cancel"
+    static let MicPermissionTitle = "Microphone Permission"
+    static let MicPermissionMessage = "Please allow the app to use the mic so it can record the audio"
 }

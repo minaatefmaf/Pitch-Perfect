@@ -22,23 +22,14 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     private var resumeRecording: Bool!
     
+    // Initialize the mic permission state
+    private var micPermissionState = AVAudioSessionRecordPermission.undetermined
+    
     override func viewWillAppear(_ animated: Bool) {
         initiateTheScene()
     }
 
     @IBAction private func recordAudio(_ sender: UIButton) {
-        // Show text "recording"
-        labelBelowRecordingButton.text = "recording..."
-
-        // Show the re-record, pause, and stop buttons
-        reRecordButton.isHidden = false
-        pauseButton.isHidden = false
-        stopButton.isHidden = false
-        // Enable the pause button
-        pauseButton.isEnabled = true
-        // Disabling the record button so that the user of our app will now not be able to accidentally press the record button twice.
-        recordButton.isEnabled = false
-        
         // Record the user's voice
         if(resumeRecording == false) {
             // Prepare the file's path
@@ -68,7 +59,25 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
                 //abort()
             }
             
+            // Make sure the app has the permission to record audio (or else, it will only record "silence")
+            micPermissionState = session.recordPermission()
+            guard micPermissionState == .granted else {
+                showAlertAndRedirectToSettings()
+                return
+            }
         }
+        
+        // Show text "recording"
+        labelBelowRecordingButton.text = "recording..."
+        
+        // Show the re-record, pause, and stop buttons
+        reRecordButton.isHidden = false
+        pauseButton.isHidden = false
+        stopButton.isHidden = false
+        // Enable the pause button
+        pauseButton.isEnabled = true
+        // Disabling the record button so that the user of our app will now not be able to accidentally press the record button twice.
+        recordButton.isEnabled = false
         
         // Prepare recorder
         audioRecorder.delegate = self
@@ -149,6 +158,18 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         
         // Initially we're recording the audio for the first time
         resumeRecording = false
+    }
+    
+    private func showAlertAndRedirectToSettings() {
+        let alert = UIAlertController(title: Alerts.MicPermissionTitle, message: Alerts.MicPermissionMessage, preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: Alerts.OkAlert, style: .default) { action in
+            // Redirect the user to the app's settings in the general seeting app
+            UIApplication.shared.openURL(NSURL(string:UIApplicationOpenSettingsURLString)! as URL)
+        }
+        let cancelAction = UIAlertAction(title: Alerts.CancelAlert, style: .destructive, handler: nil)
+        alert.addAction(confirmAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
     private func showAlert(_ title: String, message: String) {
