@@ -34,13 +34,13 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         micPermissionState = session.recordPermission()
         if micPermissionState == .undetermined {
             // This is the first time the user asks the app to record something
-            session.requestRecordPermission({ [weak weakSelf = self] (isGranted) in
+            session.requestRecordPermission { [weak weakSelf = self] (isGranted) in
                 if isGranted {
                     weakSelf?.micPermissionState = .granted
                 } else {
                     weakSelf?.micPermissionState = .denied
                 }
-            })
+            }
         }
     }
     
@@ -107,7 +107,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     }
 
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        if(flag){
+        if(flag) {
             // Save the recorded audio
             recordedAudio = RecordedAudio(filePathUrl: recorder.url, title: recorder.url.lastPathComponent)
             

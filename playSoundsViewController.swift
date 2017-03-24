@@ -163,7 +163,7 @@ class playSoundsViewController: UIViewController, AVAudioPlayerDelegate {
         configureUI(.notPlaying)
     }
     
-    private func playAudioWithDifferentRates(_ rate: Float, startFromTheBeginning: Bool){
+    private func playAudioWithDifferentRates(_ rate: Float, startFromTheBeginning: Bool) {
         stopAudio()
         
         audioPlayer.rate = rate
@@ -186,12 +186,14 @@ class playSoundsViewController: UIViewController, AVAudioPlayerDelegate {
         audioEngine.connect(audioPlayerNode, to: changePitchEffect, format: nil)
         audioEngine.connect(changePitchEffect, to: audioEngine.outputNode, format: nil)
         
-        audioPlayerNode.scheduleFile(audioFile, at: nil) {
+        audioPlayerNode.scheduleFile(audioFile, at: nil) { [weak weakSelf = self] in
             
             var delayInSeconds: Double = 0
             
-            if let lastRenderTime = self.audioPlayerNode.lastRenderTime, let playerTime = self.audioPlayerNode.playerTime(forNodeTime: lastRenderTime) {
-                delayInSeconds = Double(self.audioFile.length - playerTime.sampleTime) / Double(self.audioFile.processingFormat.sampleRate)
+            if let lastRenderTime = weakSelf?.audioPlayerNode.lastRenderTime,
+                let playerTime = weakSelf?.audioPlayerNode.playerTime(forNodeTime: lastRenderTime),
+                let audioFile = weakSelf?.audioFile {
+                delayInSeconds = Double(audioFile.length - playerTime.sampleTime) / Double(audioFile.processingFormat.sampleRate)
             }
             
             // schedule a stop timer for when audio finishes playing
