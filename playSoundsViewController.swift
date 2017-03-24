@@ -11,12 +11,22 @@ import AVFoundation
 
 class playSoundsViewController: UIViewController {
     
+    @IBOutlet private weak var slowButton: UIButton!
+    @IBOutlet private weak var fastButton: UIButton!
+    @IBOutlet private weak var chipmunkButton: UIButton!
+    @IBOutlet private weak var darthvaderButton: UIButton!
+    @IBOutlet private weak var echoButton: UIButton!
+    @IBOutlet private weak var reverbButton: UIButton!
+    @IBOutlet private weak var stopButton: UIButton!
+    
     private var audioPlayer: AVAudioPlayer!
     private var audioPlayerForEcho: AVAudioPlayer!
     var receivedAudio: RecordedAudio!
     
     private var audioEngine: AVAudioEngine!
     private var audioFile: AVAudioFile!
+    
+    enum PlayingState { case playing, notPlaying }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -152,6 +162,29 @@ class playSoundsViewController: UIViewController {
         // Make sure that the audio player has its default settings for rate and current time (In case we started the echo effect while (interrupting it) or after playing the sound in slow/fast modes)
         audioPlayer.rate = 1.0
         audioPlayer.currentTime = 0.0
+    }
+    
+    
+    // MARK: UI Functions
+    
+    func configureUI(_ playState: PlayingState) {
+        switch(playState) {
+        case .playing:
+            setPlayButtonsEnabled(false)
+            stopButton.isEnabled = true
+        case .notPlaying:
+            setPlayButtonsEnabled(true)
+            stopButton.isEnabled = false
+        }
+    }
+    
+    func setPlayButtonsEnabled(_ enabled: Bool) {
+        slowButton.isEnabled = enabled
+        fastButton.isEnabled = enabled
+        chipmunkButton.isEnabled = enabled
+        darthvaderButton.isEnabled = enabled
+        echoButton.isEnabled = enabled
+        reverbButton.isEnabled = enabled
     }
     
     private func showAlert(_ title: String, message: String) {
