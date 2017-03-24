@@ -150,6 +150,12 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         // Initially we're recording the audio for the first time
         resumeRecording = false
     }
-
+    
+    private func showAlert(_ title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: Alerts.DismissAlert, style: .default, handler: nil)
+        alert.addAction(dismissAction)
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 

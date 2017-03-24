@@ -145,4 +145,11 @@ class playSoundsViewController: UIViewController {
         audioPlayer.rate = 1.0
         audioPlayer.currentTime = 0.0
     }
+    
+    private func showAlert(_ title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: Alerts.DismissAlert, style: .default, handler: nil)
+        alert.addAction(dismissAction)
+        self.present(alert, animated: true, completion: nil)
+    }
 }
