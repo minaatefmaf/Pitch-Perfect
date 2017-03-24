@@ -25,6 +25,8 @@ class playSoundsViewController: UIViewController, AVAudioPlayerDelegate {
     
     private var audioEngine: AVAudioEngine!
     private var audioFile: AVAudioFile!
+    private var audioPlayerNode: AVAudioPlayerNode!
+    private var stopTimer: Timer!
     
     enum PlayingState { case playing, notPlaying }
 
@@ -120,7 +122,7 @@ class playSoundsViewController: UIViewController, AVAudioPlayerDelegate {
         stopAudio()
         
         // Play the audio with reverb effect
-        let audioPlayerNode = AVAudioPlayerNode()
+        audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attach(audioPlayerNode)
         
         let changeReverbEffect = AVAudioUnitReverb()
@@ -131,7 +133,19 @@ class playSoundsViewController: UIViewController, AVAudioPlayerDelegate {
         audioEngine.connect(audioPlayerNode, to: changeReverbEffect, format: nil)
         audioEngine.connect(changeReverbEffect, to: audioEngine.outputNode, format: nil)
         
-        audioPlayerNode.scheduleFile(audioFile, at: nil, completionHandler: nil)
+        audioPlayerNode.scheduleFile(audioFile, at: nil) {
+            
+            var delayInSeconds: Double = 0
+            
+            if let lastRenderTime = self.audioPlayerNode.lastRenderTime, let playerTime = self.audioPlayerNode.playerTime(forNodeTime: lastRenderTime) {
+                delayInSeconds = Double(self.audioFile.length - playerTime.sampleTime) / Double(self.audioFile.processingFormat.sampleRate)
+            }
+            
+            // schedule a stop timer for when audio finishes playing
+            self.stopTimer = Timer(timeInterval: delayInSeconds, target: self, selector: #selector(playSoundsViewController.timerDidFire), userInfo: nil, repeats: false)
+            RunLoop.main.add(self.stopTimer!, forMode: RunLoopMode.defaultRunLoopMode)
+        }
+        
         do {
             try audioEngine.start()
         } catch {
@@ -162,7 +176,7 @@ class playSoundsViewController: UIViewController, AVAudioPlayerDelegate {
     private func changePitchEffect(_ pitch: Float) {
         stopAudio()
         
-        let audioPlayerNode = AVAudioPlayerNode()
+        audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attach(audioPlayerNode)
         
         let changePitchEffect = AVAudioUnitTimePitch()
@@ -172,7 +186,19 @@ class playSoundsViewController: UIViewController, AVAudioPlayerDelegate {
         audioEngine.connect(audioPlayerNode, to: changePitchEffect, format: nil)
         audioEngine.connect(changePitchEffect, to: audioEngine.outputNode, format: nil)
         
-        audioPlayerNode.scheduleFile(audioFile, at: nil, completionHandler: nil)
+        audioPlayerNode.scheduleFile(audioFile, at: nil) {
+            
+            var delayInSeconds: Double = 0
+            
+            if let lastRenderTime = self.audioPlayerNode.lastRenderTime, let playerTime = self.audioPlayerNode.playerTime(forNodeTime: lastRenderTime) {
+                delayInSeconds = Double(self.audioFile.length - playerTime.sampleTime) / Double(self.audioFile.processingFormat.sampleRate)
+            }
+            
+            // schedule a stop timer for when audio finishes playing
+            self.stopTimer = Timer(timeInterval: delayInSeconds, target: self, selector: #selector(playSoundsViewController.timerDidFire), userInfo: nil, repeats: false)
+            RunLoop.main.add(self.stopTimer!, forMode: RunLoopMode.defaultRunLoopMode)
+        }
+        
         do {
             try audioEngine.start()
         } catch {
@@ -191,6 +217,17 @@ class playSoundsViewController: UIViewController, AVAudioPlayerDelegate {
         // Make sure that the audio player has its default settings for rate and current time (In case we started the echo effect while (interrupting it) or after playing the sound in slow/fast modes)
         audioPlayer.rate = 1.0
         audioPlayer.currentTime = 0.0
+        
+        // Invalidate the timer if it's still running
+        if let stopTimer = stopTimer {
+            stopTimer.invalidate()
+        }
+    }
+    
+    func timerDidFire() {
+        stopAudio()
+        // configure the UI for the "not playing" mode
+        configureUI(.notPlaying)
     }
     
     // Mark: AVAudioPlayerDelegate Methods
