@@ -29,13 +29,19 @@ class playSoundsViewController: UIViewController {
         audioPlayer.enableRate = true
         
         audioEngine = AVAudioEngine()
-        audioFile = try? AVAudioFile(forReading: receivedAudio.filePathUrl as URL)
+        // initialize (recording) audio file
+        do {
+            audioFile = try AVAudioFile(forReading: receivedAudio.filePathUrl as URL)
+        } catch let error {
+            showAlert(Alerts.AudioFileError, message: String(describing: error.localizedDescription))
+        }
         
         // Setup the audio session so that the played back sound works even in silent mode
         let session = AVAudioSession.sharedInstance()
         do {
             try session.setCategory(AVAudioSessionCategoryPlayback, with: AVAudioSessionCategoryOptions.mixWithOthers)
-        } catch _ {
+        } catch {
+            showAlert(Alerts.ErrorTitle, message: Alerts.AudioSessionError)
         }
         
     }
@@ -92,7 +98,8 @@ class playSoundsViewController: UIViewController {
         audioPlayerNode.scheduleFile(audioFile, at: nil, completionHandler: nil)
         do {
             try audioEngine.start()
-        } catch _ {
+        } catch {
+            showAlert(Alerts.ErrorTitle, message: Alerts.AudioEngineError)
         }
         
         audioPlayerNode.play()
@@ -129,7 +136,8 @@ class playSoundsViewController: UIViewController {
         audioPlayerNode.scheduleFile(audioFile, at: nil, completionHandler: nil)
         do {
             try audioEngine.start()
-        } catch _ {
+        } catch {
+            showAlert(Alerts.ErrorTitle, message: Alerts.AudioEngineError)
         }
         
         audioPlayerNode.play()

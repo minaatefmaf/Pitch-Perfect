@@ -46,6 +46,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         initiateTheScene()
     }
 
@@ -81,7 +82,8 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
             // Setup audio session
             do {
                 try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
-            } catch _ {
+            } catch {
+                showAlert(Alerts.ErrorTitle, message: Alerts.AudioSessionError)
             }
 
             // Initialize recorder
@@ -93,8 +95,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
             do {
                 try audioRecorder = AVAudioRecorder(url: filePath, settings: settings)
             } catch {
-                print("Seetings!!")
-                //abort()
+                showAlert(Alerts.ErrorTitle, message: Alerts.AudioRecorderError)
             }
         }
         
@@ -113,7 +114,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
             // Move to the next scene (aka perform segue)
             self.performSegue(withIdentifier: "stopRecording", sender: recordedAudio)
         } else {
-            print("Recording was not successful")
+            showAlert(Alerts.RecordingFailedTitle, message: Alerts.RecordingFailedMessage)
             recordButton.isEnabled = true
             stopButton.isHidden = true
         }
@@ -161,6 +162,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
             // To Play the audio on the loud speaker mode
             try audioSession.setCategory(AVAudioSessionCategoryAmbient)
         } catch _ {
+            showAlert(Alerts.ErrorTitle, message: Alerts.AudioSessionError)
         }
     }
     
@@ -180,7 +182,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     private func showAlertAndRedirectToSettings() {
-        let alert = UIAlertController(title: Alerts.MicPermissionTitle, message: Alerts.MicPermissionMessage, preferredStyle: .alert)
+        let alert = UIAlertController(title: Alerts.RecordingDisabledTitle, message: Alerts.RecordingDisabledMessage, preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: Alerts.OkAlert, style: .default) { action in
             // Redirect the user to the app's settings in the general seeting app
             UIApplication.shared.openURL(NSURL(string:UIApplicationOpenSettingsURLString)! as URL)
