@@ -30,7 +30,7 @@ class playSoundsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         audioPlayer = try? AVAudioPlayer(contentsOf: receivedAudio.filePathUrl as URL)
         // Make the another copy of the recorded audio for the echo effect.
         audioPlayerForEcho = try? AVAudioPlayer(contentsOf: receivedAudio.filePathUrl as URL)
@@ -56,30 +56,52 @@ class playSoundsViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // configure the UI for the initial state
+        configureUI(.notPlaying)
+    }
+    
     @IBAction private func playSlowAudio(_ sender: UIButton) {
+        // configure the UI for the "playing" mode
+        configureUI(.playing)
+        
         // Play audio slowly
         playAudioWithDifferentRates(0.5, startFromTheBeginning: true)
         audioPlayer.play()
     }
 
     @IBAction private func playFastAudio(_ sender: UIButton) {
+        // configure the UI for the "playing" mode
+        configureUI(.playing)
+        
         // Play audio in fast mode
         playAudioWithDifferentRates(1.5, startFromTheBeginning: true)
         audioPlayer.play()
     }
 
     @IBAction private func playChipmunkAudio(_ sender: UIButton) {
+        // configure the UI for the "playing" mode
+        configureUI(.playing)
+        
         // Play the audio with high pitch
         changePitchEffect(1000)
         
     }
     
     @IBAction private func playDarthvaderAudio(_ sender: UIButton) {
+        // configure the UI for the "playing" mode
+        configureUI(.playing)
+        
         // Play the audio with low pitch
         changePitchEffect(-1000)
     }
     
     @IBAction private func playEchoAudio(_ sender: UIButton) {
+        // configure the UI for the "playing" mode
+        configureUI(.playing)
+        
         stopAudio()
         
         // Play the audio with echo effect
@@ -91,6 +113,9 @@ class playSoundsViewController: UIViewController {
     }
     
     @IBAction private func playReverbAudio(_ sender: UIButton) {
+        // configure the UI for the "playing" mode
+        configureUI(.playing)
+        
         stopAudio()
         
         // Play the audio with reverb effect
@@ -118,6 +143,9 @@ class playSoundsViewController: UIViewController {
     
     @IBAction private func stopPlayedSounds(_ sender: UIButton) {
         stopAudio()
+        
+        // configure the UI for the "not playing" mode
+        configureUI(.notPlaying)
     }
     
     private func playAudioWithDifferentRates(_ rate: Float, startFromTheBeginning: Bool){
