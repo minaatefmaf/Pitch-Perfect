@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class playSoundsViewController: UIViewController {
+class playSoundsViewController: UIViewController, AVAudioPlayerDelegate {
     
     @IBOutlet private weak var slowButton: UIButton!
     @IBOutlet private weak var fastButton: UIButton!
@@ -32,6 +32,7 @@ class playSoundsViewController: UIViewController {
         super.viewDidLoad()
         
         audioPlayer = try? AVAudioPlayer(contentsOf: receivedAudio.filePathUrl as URL)
+        audioPlayer.delegate = self
         // Make the another copy of the recorded audio for the echo effect.
         audioPlayerForEcho = try? AVAudioPlayer(contentsOf: receivedAudio.filePathUrl as URL)
         
@@ -192,6 +193,12 @@ class playSoundsViewController: UIViewController {
         audioPlayer.currentTime = 0.0
     }
     
+    // Mark: AVAudioPlayerDelegate Methods
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        // configure the UI for the "not playing" mode
+        configureUI(.notPlaying)
+    }
     
     // MARK: UI Functions
     
