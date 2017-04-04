@@ -21,28 +21,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     private var recordedAudio: RecordedAudio!
     private let session = AVAudioSession.sharedInstance()
 
-    
     private var resumeRecording: Bool!
-    
-    // Initialize the mic permission state
-    private var micPermissionState: AVAudioSessionRecordPermission!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // If this is the fist time the user uses the app
-        micPermissionState = session.recordPermission()
-        if micPermissionState == .undetermined {
-            // This is the first time the user asks the app to record something
-            session.requestRecordPermission { [weak weakSelf = self] (isGranted) in
-                if isGranted {
-                    weakSelf?.micPermissionState = .granted
-                } else {
-                    weakSelf?.micPermissionState = .denied
-                }
-            }
-        }
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -52,7 +31,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
     @IBAction private func recordAudio(_ sender: UIButton) {
         // Make sure the app has the permission to record audio (or else, it will only record "silence")
-        micPermissionState = session.recordPermission()
+        let micPermissionState = session.recordPermission()
         guard micPermissionState == .granted else {
             showAlertAndRedirectToSettings()
             return

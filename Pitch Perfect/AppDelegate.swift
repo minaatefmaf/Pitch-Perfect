@@ -8,14 +8,33 @@
 
 import UIKit
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    private func initializeTheAppForFirstLaunch() {
+        if UserDefaults.standard.bool(forKey: "HasLaunchedBefore") {
+            // The app has launched before -> Do nothing
+        } else {
+            // This is the first launch ever, ask for the required permssions
+            AppPermissions.askUserPermissionForTheMic()
+            
+            // Set "HasLaunchedBefore" to true
+            UserDefaults.standard.set(true, forKey: "HasLaunchedBefore")
+            UserDefaults.standard.synchronize()
+        }
+    }
+    
+    
+    // MARK: UIApplicationDelegate Methods
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // If this is the first time the user launches the app, ask for the required permissions
+        initializeTheAppForFirstLaunch()
         return true
     }
 
