@@ -162,13 +162,16 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     private func showAlertAndRedirectToSettings() {
         let alert = UIAlertController(title: Alerts.RecordingDisabledTitle, message: Alerts.RecordingDisabledMessage, preferredStyle: .alert)
-        let confirmAction = UIAlertAction(title: Alerts.OkAlert, style: .default) { action in
+        
+        let confirmAction = UIAlertAction(title: Alerts.GoToSettings, style: .default) { action in
             // Redirect the user to the app's settings in the general seeting app
             UIApplication.shared.openURL(NSURL(string:UIApplicationOpenSettingsURLString)! as URL)
         }
-        let cancelAction = UIAlertAction(title: Alerts.CancelAlert, style: .destructive, handler: nil)
-        alert.addAction(confirmAction)
+        let cancelAction = UIAlertAction(title: Alerts.AskLater, style: .default, handler: nil)
+        
         alert.addAction(cancelAction)
+        alert.addAction(confirmAction)
+
         self.present(alert, animated: true, completion: nil)
     }
     

@@ -15,6 +15,8 @@ struct Alerts {
     static let CancelAlert = "Cancel"
     static let RecordingDisabledTitle = "Recording Disabled"
     static let RecordingDisabledMessage = "You've disabled this app from recording your microphone. Check Settings."
+    static let GoToSettings = "Open Settings"
+    static let AskLater = "Not Now"
     
     static let ErrorTitle = "Error"
     static let DismissAlert = "Dismiss"
